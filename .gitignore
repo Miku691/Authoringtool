@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### CUSTOM ###
+target/
+.m2/
+*.class
+hs_err_pid*
+bin/
+log/
