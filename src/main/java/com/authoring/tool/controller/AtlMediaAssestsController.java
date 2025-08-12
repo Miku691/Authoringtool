@@ -1,5 +1,23 @@
 package com.authoring.tool.controller;
 
-public class AtlMediaAssestsController {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.authoring.tool.dto.AtlMediaAssestsDto;
+import com.authoring.tool.services.AtlMediaAssestsService;
+
+@RestController
+@RequestMapping("media-asset")
+public class AtlMediaAssestsController {
+	@Autowired
+	private AtlMediaAssestsService mediaService;
+	@PostMapping
+	public ResponseEntity<AtlMediaAssestsDto> saveData(@RequestBody AtlMediaAssestsDto mediaAssetDto){
+		return new ResponseEntity<AtlMediaAssestsDto>(mediaService.saveMediaAssest(mediaAssetDto), HttpStatus.CREATED);
+	}
 }
