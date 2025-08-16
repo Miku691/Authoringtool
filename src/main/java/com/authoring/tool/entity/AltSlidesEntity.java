@@ -1,8 +1,6 @@
 package com.authoring.tool.entity;
 
-import java.time.LocalDate;
-
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,19 +11,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table(name = "ATL_MEDIA_ASSETS")
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AtlMediaAssests {
+@Table(name="ALT_SLIDES")
+public class AltSlidesEntity {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String fileName;
-	private String fileUrl;
-	private String fileType;
-	private String uploadedBy;
-	private LocalDate uploadedOn;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="ID",nullable = false)
+	private String id;
+	@Column(name="COURSE_ID")
+	private String courseId;
+	@Column(name="TITLE")
+	private String title;
+	@Column(name="DESC")
+	private String desc;
+	@Column(name="ORDER_INDEX")
+	private int orderIndex;
 }

@@ -44,3 +44,4 @@ log/
 
 ## Testing MIKU Branch ##
 >>>>>>> a1c93d7e79e7e2ee4a9b561c4360a3d32102b70d
+/.apt_generated_tests/

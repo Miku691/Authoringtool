@@ -1,5 +1,6 @@
 package com.authoring.tool.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -22,28 +23,20 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AtlCourse {
+public class AltCourseEntity {
 
 	@Id
 	@Column(name="ID",nullable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private String id;
-	@NotBlank(message="Title should not empty")
+	private Long id;
 	@Column(name ="TITLE")
 	private String title;
-	@NotEmpty(message="Provide some description about Title")
 	@Column(name ="DESC")
 	private String desc;
-	@NotBlank(message="Provide the Author Name")
 	@Column(name ="AUTHOR")
 	private String author;
-	@FutureOrPresent
 	@Column(name ="CREATED_ON")
-	private Date createdOn;
+	private LocalDate createdOn;
 	
-	@Column(name ="UPDATE_ON")
-	private Date updatedOn;
-	@Column(name ="STATUS")
-	private char status;
 	
 }
