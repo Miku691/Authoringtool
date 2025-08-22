@@ -17,7 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="ALT_SLIDES")
-public class AltSlidesEntity {
+public class AltSlides {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
