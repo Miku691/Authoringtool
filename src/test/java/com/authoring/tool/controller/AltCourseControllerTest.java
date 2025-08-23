@@ -1,4 +1,4 @@
-package com.authoring.tool.ControllerTest;
+package com.authoring.tool.controller;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
