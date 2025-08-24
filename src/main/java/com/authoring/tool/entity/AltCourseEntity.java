@@ -2,12 +2,14 @@ package com.authoring.tool.entity;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
@@ -37,6 +39,10 @@ public class AltCourseEntity {
 	private String author;
 	@Column(name ="CREATED_ON")
 	private LocalDate createdOn;
+	
+	
+	@OneToMany(mappedBy = "course")
+	private List<AltSlidesEntity> slides;
 	
 	
 }

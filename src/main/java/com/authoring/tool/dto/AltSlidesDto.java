@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor	
 public class AltSlidesDto {
 
-	private String id;
+	private Long Id;
 	private String courseId;
 	@NotNull
 	private String title;
