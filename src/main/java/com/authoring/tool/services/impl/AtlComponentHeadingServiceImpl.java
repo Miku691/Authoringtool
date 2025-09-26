@@ -1,6 +1,7 @@
 package com.authoring.tool.services.impl;
 
 import org.modelmapper.ModelMapper;
+
 import org.springframework.stereotype.Service;
 
 import com.authoring.tool.dto.AtlComponentHeadingDto;
@@ -8,6 +9,7 @@ import com.authoring.tool.entity.AtlComponentHeading;
 import com.authoring.tool.exception.DetailsNotFoundException;
 import com.authoring.tool.repo.AtlComponentHeadingRepo;
 import com.authoring.tool.services.AtlComponentHeadingService;
+
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,6 +29,7 @@ public class AtlComponentHeadingServiceImpl implements AtlComponentHeadingServic
 	public AtlComponentHeadingDto getComponentHeading(Long headingId) {
 		AtlComponentHeading headingObj = headingRepo.findById(headingId).orElseThrow(() -> new DetailsNotFoundException("headingId", headingId.toString()));
 		return modelMapper.map(headingObj, AtlComponentHeadingDto.class);
+
 	}
 
 }
