@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,9 +20,8 @@ public class AtlMediaAssestsController {
 	private AtlMediaAssestsService mediaService;
 	@PostMapping
 	public ResponseEntity<AtlMediaAssestsDto> saveData(
-			@RequestParam("slideId") Long slideId,
 			@RequestBody AtlMediaAssestsDto mediaAssetDto){
-		return new ResponseEntity<AtlMediaAssestsDto>(mediaService.saveMediaAssest(mediaAssetDto, slideId), HttpStatus.CREATED);
+		return new ResponseEntity<AtlMediaAssestsDto>(mediaService.saveMediaAssest(mediaAssetDto), HttpStatus.CREATED);
 	}
 	
 	@GetMapping

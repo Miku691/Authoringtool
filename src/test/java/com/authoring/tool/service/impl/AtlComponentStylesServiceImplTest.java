@@ -3,7 +3,6 @@ package com.authoring.tool.service.impl;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -14,6 +13,7 @@ import org.modelmapper.ModelMapper;
 
 import com.authoring.tool.dto.AtlComponentStylesDto;
 import com.authoring.tool.entity.AtlComponentStyles;
+import com.authoring.tool.exception.DetailsNotFoundException;
 import com.authoring.tool.repo.AtlComponentStylesRepo;
 import com.authoring.tool.services.impl.AtlComponentStylesServiceImpl;
 
@@ -66,5 +66,24 @@ public class AtlComponentStylesServiceImplTest {
 		
 		Assertions.assertEquals(styleJsonDto.getId(), returnedDto.getId());
 		Assertions.assertEquals(styleJsonDto.getComponentType(), returnedDto.getComponentType());
+	}
+	
+	@Test
+	void getJsonStyleThorwsExceptionOnDataNotAvailable() {
+		AtlComponentStyles styleEntity = new AtlComponentStyles();
+		styleEntity.setId(1l);
+		styleEntity.setComponentType("PDF");
+		
+		Mockito.when(styleRepo.findById(1l)).thenReturn(Optional.empty());
+		
+		 
+		//testing exception 
+		DetailsNotFoundException runtimeException = Assertions.assertThrows(
+				DetailsNotFoundException.class, () -> {
+			styleObj.getStyleJson(1l);
+		});
+		
+		Assertions.assertEquals("Details Not found for: ID - 1", runtimeException.getMessage());
+		
 	}
 }
