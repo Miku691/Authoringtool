@@ -12,7 +12,7 @@ public class GlobalExceptionHandler<T> {
 	@ExceptionHandler(DetailsNotFoundException.class)
 	public ResponseEntity<ApiResponse<T>> DetailsNotFoundException(DetailsNotFoundException e) {
 		return new ResponseEntity<ApiResponse<T>>(
-				new ApiResponse<T>("FAILED", "Exception Occured", 500, null),
+				new ApiResponse<T>("FAILED", e.getMessage(), 500, null),
 				HttpStatus.INTERNAL_SERVER_ERROR
 					);
 	}

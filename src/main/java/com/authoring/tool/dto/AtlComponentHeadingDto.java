@@ -1,9 +1,10 @@
 package com.authoring.tool.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+
+import com.authoring.tool.entity.AtlSlides;
+
+
 
 @Getter
 @Setter
@@ -11,6 +12,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class AtlComponentHeadingDto {
 
-	private Long id;
+	private Long Id;
 	private String title;
+	
+	private AtlSlides slide;
 }
