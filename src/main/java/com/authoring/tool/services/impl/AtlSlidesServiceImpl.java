@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.authoring.tool.dto.AtlSlidesDto;
+import com.authoring.tool.dto.AtlSlidesWithComponentDto;
 import com.authoring.tool.entity.AtlSlides;
 import com.authoring.tool.exception.DetailsNotFoundException;
 import com.authoring.tool.repo.AtlCourseRepo;
@@ -28,9 +29,9 @@ public class AtlSlidesServiceImpl implements AtlSlidesService {
 	}
 
 	@Override
-	public AtlSlidesDto getSlideById(Long slideId) {
+	public AtlSlidesWithComponentDto getSlideById(Long slideId) {
 		AtlSlides slideObj = slideRepo.findById(slideId).orElseThrow(() -> new DetailsNotFoundException("slideId", slideId.toString()));
-		return modelMapper.map(slideObj, AtlSlidesDto.class);
+		return modelMapper.map(slideObj, AtlSlidesWithComponentDto.class);
 	}
 
 }

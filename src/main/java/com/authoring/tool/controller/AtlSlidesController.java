@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.authoring.tool.dto.AtlSlidesDto;
+import com.authoring.tool.dto.AtlSlidesWithComponentDto;
 import com.authoring.tool.services.AtlSlidesService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,7 +27,7 @@ public class AtlSlidesController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<AtlSlidesDto> getSlideById(@RequestParam Long slideId){
-		return new ResponseEntity<AtlSlidesDto>(slideService.getSlideById(slideId), HttpStatus.OK);
+	public ResponseEntity<AtlSlidesWithComponentDto> getSlideById(@RequestParam Long slideId){
+		return new ResponseEntity<AtlSlidesWithComponentDto>(slideService.getSlideById(slideId), HttpStatus.OK);
 	}
 }
