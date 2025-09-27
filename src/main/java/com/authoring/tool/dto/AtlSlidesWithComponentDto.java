@@ -1,6 +1,5 @@
 package com.authoring.tool.dto;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -12,14 +11,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AtlCourseDto {
-	private long id;
+public class AtlSlidesWithComponentDto {
+	private Long id;
 	private String title;
 	private String desc;
-	private String author;
-	private LocalDateTime createdOn;
-	private LocalDateTime updatedOn;
-	private String status;
+	private Integer index;
 	
-	private List<AtlSlidesWithComponentDto> slides;
+	List<AtlHeadingWOSlideDto> components;
 }

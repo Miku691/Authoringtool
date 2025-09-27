@@ -1,8 +1,9 @@
 package com.authoring.tool.services;
 
 import com.authoring.tool.dto.AtlSlidesDto;
+import com.authoring.tool.dto.AtlSlidesWithComponentDto;
 
 public interface AtlSlidesService {
 	AtlSlidesDto saveSlide(AtlSlidesDto slideDto);
-	AtlSlidesDto getSlideById(Long slideId);
+	AtlSlidesWithComponentDto getSlideById(Long slideId);
 }

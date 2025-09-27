@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.authoring.tool.dto.AtlComponentHeadingDto;
+import com.authoring.tool.dto.AtlHeadingWOSlideDto;
 import com.authoring.tool.entity.AtlComponentHeading;
 import com.authoring.tool.exception.DetailsNotFoundException;
 import com.authoring.tool.repo.AtlComponentHeadingRepo;
@@ -24,9 +25,9 @@ public class AtlComponentHeadingServiceImpl implements AtlComponentHeadingServic
 	}
 
 	@Override
-	public AtlComponentHeadingDto getComponentHeading(Long headingId) {
+	public AtlHeadingWOSlideDto getComponentHeading(Long headingId) {
 		AtlComponentHeading headingObj = headingRepo.findById(headingId).orElseThrow(() -> new DetailsNotFoundException("headingId", headingId.toString()));
-		return modelMapper.map(headingObj, AtlComponentHeadingDto.class);
+		return modelMapper.map(headingObj, AtlHeadingWOSlideDto.class);
 	}
 
 }
